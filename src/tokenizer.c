@@ -50,18 +50,65 @@ char *copy_str(char *inStr, short len){
   }
   // puts a terminator in the copy
   copied_str[len] = '\0';
-  return copied_str;
+  return copied_str; // returns copied_str
   
 }
 
 char **tokenize(char* str){
+  // set the variable number_tokens to the number of tokens in the array
+  int num_tokens = count_tokens(str);
+  
+  // allocate memory to the array of pointers to the tokens
+  char **all_tokens = malloc((num_tokens + 1) * sizeof(char*));
+
+  // checks if memory was allocated and prints error statment if not
+  if(all_tokens == NULL){
+    printf("Memory failed to allocate to all_tokens");
+    return NULL;
+  }
+  for(int i = 0; i < num_tokens; i++){ // iterates through each token
+    str = token_start(str); // the pointer is set to the next available pointer
+    char *end = token_terminator(str); // sets a pointer end to the end of the token
+    int len = end - str; // length of current token
+    all_tokens[i] = malloc(sizeof(char) * (len+1)); // sets each index of the array to the
+    // size of the current token
+    // checks if memory was properly allocated to each index of the all_tokens array, free ow
+    if(all_tokens[i] == NULL){
+      printf("Memory failed to allocate to current token");
+      // frees all others index
+      for(int f = 0; f<i;f++){
+	free(all_tokens[i]);
+      }
+      free(all_tokens);
+      return NULL;
+    }
+    char *copied = copy_str(str,len); // set to a copy of the current token
+    for (int z = 0; z < len; z++){ // traversing the characters of the current token
+      all_tokens[i][z] = copied[z];
+    }
+    free(copied);
+    all_tokens[i][len] = '\0'; // puts a zero-terminator
+    str = token_start(end); // str is now set to point to the next token    
+  }
+  all_tokens[num_tokens] = NULL;
+  return all_tokens;
+
 
 }
 
 void print_tokens(char **tokens){
-
+  int index = 0;
+  while(tokens[index] != NULL){
+    printf("%s\n", tokens[index]);
+    index++;
+  }
 }
 
 void free_tokens(char **tokens){
-
+  int index = 0;
+  while(tokens[index] != NULL){
+    free(tokens[index]);
+    index++;
+  }
+  free(tokens);
 }
