@@ -1,6 +1,6 @@
 tokenizerProgram
 ====================
-# DESCRIPTION:
+## DESCRIPTION:
 
 The *tokenizerProgram* is a program that is meant to tokenize a string of
 words and maintain the history of all strings inputted during the duration of
@@ -15,6 +15,24 @@ addition, this program can return the string that was tokenized at a certain
 ID in the history. For more information on how to compile and run the program,
 refer to the headings below.
 
-# COMPILE & MAKE:
+## COMPILE & MAKE:
 
-# COMMANDS IN PROGRAM:
+   - 'make all' creates the tokenizerProgram, this must be done before running.
+   - 'make run' runs the tokenizerProgram.
+   - 'make clean' removes any objects files as well as the program itself
+
+## COMMANDS IN PROGRAM:
+
+   - '>' indicates the program is ready to recieve input. Type in a string of
+   100 chars.
+
+You may use all the following commands:
+
+   - 'history' will return the history of the program, all strings that have
+   been inputted
+
+   - '!d' d represents a number. when calling '!d', the program returns the d
+     input of the program. For example, "hello world" was the first
+     input. Typing '!1' will return that string
+
+   - 'e' ends the program. "Program ended" will be printed to indicate such.
