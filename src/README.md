@@ -19,7 +19,7 @@ refer to the headings below.
 
    - 'make all' creates the tokenizerProgram, this must be done before running.
    - 'make run' runs the tokenizerProgram.
-   - 'make clean' removes any objects files as well as the program itself
+   - 'make clean' removes any objects files as well as the program itself.
 
 ## COMMANDS IN PROGRAM:
 
@@ -29,10 +29,10 @@ refer to the headings below.
 You may use all the following commands:
 
    - 'history' will return the history of the program, all strings that have
-   been inputted
+   been inputted.
 
    - '!d' d represents a number. when calling '!d', the program returns the d
      input of the program. For example, "hello world" was the first
-     input. Typing '!1' will return that string
+     input. Typing '!1" will return "hello word".
 
    - 'e' ends the program. "Program ended" will be printed to indicate such.
