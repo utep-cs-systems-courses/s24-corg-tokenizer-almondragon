@@ -16,7 +16,7 @@ List* init_history(){
 void add_history(List *list, char *str){
   Item *new_item = malloc(sizeof(Item)); // allocating memory for the item
   if(new_item == NULL){ // checking if memory was in fact allocated
-    printf("Memmory was not allocated to new item");
+    printf("Memory was not allocated to new item");
     return;
   }
   // finding the length of the str
@@ -25,7 +25,7 @@ void add_history(List *list, char *str){
     index++;
   }
   // allocating memory for the copy of str
-  new_item->str == malloc(index+1);
+  new_item->str = malloc(index+1);
   if(new_item->str == NULL){
     printf("Memory was not allocated to the str of new item");
     return;
